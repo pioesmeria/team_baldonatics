@@ -1,5 +1,7 @@
 <?php
 
+use Collective\Errors\ErrorsServiceProvider;
+
 return [
 
     /*
