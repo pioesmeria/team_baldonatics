@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        ErrorsServiceProvider::class,
         /*
          * Application Service Providers...
          */

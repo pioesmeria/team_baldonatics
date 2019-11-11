@@ -1,4 +1,4 @@
-@extends('errors::illustrated-layout')
+@extends('errors.illustrated-layout')
 
 @section('code', '404')
 @section('title', __('Page Not Found'))
@@ -8,4 +8,4 @@
 </div>
 @endsection
 
-@section('message', __('Sorry, the page you are looking for could not be found.'))
+@section('message', $message ?? __('Sorry, the page you are looking for could not be found.'))

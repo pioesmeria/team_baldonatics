@@ -1,4 +1,4 @@
-@extends('errors::illustrated-layout')
+@extends('errors.illustrated-layout')
 
 @section('code', '500')
 @section('title', __('Server Error'))
@@ -8,4 +8,4 @@
 </div>
 @endsection
 
-@section('message', __('Whoops, something went wrong on our servers.'))
+@section('message', $message ?? __('Whoops, something went wrong on our servers.'))
