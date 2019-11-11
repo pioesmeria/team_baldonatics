@@ -6,13 +6,9 @@ use App\Exceptions\UsgsServiceException;
 use App\Http\Repositories\IndexRepository;
 use App\Services\UsgsService;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\View\View;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use function foo\func;
 
 class IndexController extends Controller
 {
@@ -32,7 +28,6 @@ class IndexController extends Controller
      */
     public function index(Request $request)
     {
-
         try {
             $response = (new UsgsService)->fetchData();
             $parsed = json_decode($response, true);
@@ -49,6 +44,8 @@ class IndexController extends Controller
             return view('welcome', compact('result'));
         } catch (UsgsServiceException $e) {
             return view('errors.500', ['message' => trans('errors.usgs')]);
+        } catch (\Exception $e) {
+            return view('errors.400', ['code' => '400']);
         }
     }
 }
